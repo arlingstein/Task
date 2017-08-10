@@ -1,0 +1,54 @@
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<h1 class="subtitle is-1">{{title}}</h1>
+
+<div class="columns">
+  <div class="column">
+    <input id="task" class="input" type="text" [(ngModel)]="taskField" placeholder="Add a Task">
+  </div>
+  <div class="column">
+    <a class="button is-primary"  style="width: 100px" (click)="add()">Add</a>
+  </div>
+</div>
+<div class="columns">
+  <div class="column">
+      <textarea id="description" class="textarea" [(ngModel)]="taskDescriptionField" placeholder="Task Desciption"></textarea>
+  </div>
+  <div class="column">
+    <code *ngIf="warning"class="html column is-3">Both the task and task description needs to be filled out
+      <br>
+      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    </code>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <p>Filter Tasks: </p><input type = "text" class="input is-small" [value]="filterString" (input)="filterList($event)">
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="Task">Task<span *ngIf="taskList.length > 1">s</span> </abbr></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of taskList; let i = index">
+      <th>{{i+1}} {{task.taskName}}</th>
+      <th>{{task.description}}</th>
+      <th style="border-right: thin solid">edit</th> 
+      <th style="color:red" (click)="delete($event, i)"><a class="delete"></a></th>
+    </tr>
+  </tbody>
+</table>
+
+<!--<p class='content-heading-color is-blue'> Hi </p>-->
+<!--<article class="message">
+  <div class="message-header">
+    <p>Hello World</p>
+    <button class="delete"></button>
+  </div>
+  <div class="message-body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+  </div>
+</article>-->

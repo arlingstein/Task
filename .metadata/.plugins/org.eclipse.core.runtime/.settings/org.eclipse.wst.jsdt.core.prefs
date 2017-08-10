@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+org.eclipse.wst.jsdt.core.PREF_JS_RUNTIME_INSTALLS_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimeSettings>\r\n<runtimeType defaultRuntime\="GlobalNodeJsRuntime" id\="org.eclipse.wst.jsdt.js.node.runtimeType">\r\n<runtime id\="__nodejs_version_8.2.1" name\="Node 8.2.1" path\="C\:\\Users\\arlin\\.webclipse\\nodejs\\8.2.1\\node.exe"/>\r\n</runtimeType>\r\n</runtimeSettings>\r\n
