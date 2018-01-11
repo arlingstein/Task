@@ -1,0 +1,69 @@
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<!--<div class="loader"></div>-->
+<div class ="ng2">
+<h1 class="subtitle is-1">{{title}}</h1>
+<div class="columns">
+  <div class="column">
+    <input id="task" class="input" type="text" [(ngModel)]="taskField" placeholder="Add a Task">
+  </div>
+  <div class="column">
+    <a class="button is-primary"  style="width: 100px" (click)="add()">Add</a>
+  </div>
+
+
+</div>
+<div class="columns">
+  <div class="column">
+      <textarea id="description" class="textarea" [(ngModel)]="taskDescriptionField" placeholder="Task Desciption"></textarea>
+  </div>
+  <div class="column">
+    <code *ngIf="warning"class="html column is-3">Both the task and task description needs to be filled out
+      <br>
+      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    </code>
+  </div>
+</div>
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <p class="stark">Filter Tasks: </p>
+    <span>
+    <input type = "search" id="example" class="input is-small input-box-width" [value]="filterString" (input)="filterList($event)">
+    <!--<i *ngIf="filterString.length > 0" class="fa fa-times clear__search" aria-hidden="true" (click)="clearFilterArea()"></i>-->
+    <i *ngIf="filterString.length > 0" class="clear__search" aria-hidden="true" (click)="clearFilterArea()"></i>
+    </span>
+
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="Task">Task<span *ngIf="taskList.length > 1">s</span> </abbr></th>
+      <th> Task Description </th>
+      <th> Edit </th>
+      <th> Delete </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of taskList; let i = index" (click)="routeTo('taskdetail', task.taskName)">
+      <!--<a [routerLink]="['taskdetail', task.taskName]" (click)="routeTo('taskdetail', task.taskName)">-->
+      <td>{{i+1}} {{task.taskName}}</td>
+      <td>{{task.description}}</td>
+      <td style="border-right: thin solid">edit</td> 
+      <td style="color:red" (click)="delete($event, i)"><a class="delete"></a></td>
+      <!--</a>-->
+    </tr>
+  </tbody>
+</table>
+</div>
+<br/>
+
+
+<ul>
+  <li *ngFor="let task of taskList$ | async as list">
+    {{task.taskName}}  ||  {{task.description}}
+  </li>
+</ul>
+
+<button (click)="routeTo()"> Test Routing </button>

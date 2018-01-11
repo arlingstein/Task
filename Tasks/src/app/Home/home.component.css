@@ -1,0 +1,81 @@
+.stark{
+    color: red;
+}
+
+span.search 
+  {
+    display:inline-block;
+    border:1px solid black;
+    border-radius:0.5em; 
+    -webkit-border-radius: 0.5em;    
+  }
+span.search > input 
+  {
+    background: none;
+    border: none;
+  }
+
+  span.inline{
+      display: inline;
+  }
+
+
+.input-box-width{
+  width: 60%;
+}
+
+.clear__search{
+    left:5%;
+    vertical-align: -moz-middle-with-baseline;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+ @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+         }
+
+
+
+@media only screen and (max-width: 480px) {
+    .ng2 {
+        background-color:palevioletred;
+    }
+
+    .stark{
+      color:blue;
+    }
+}
